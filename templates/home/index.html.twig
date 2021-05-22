@@ -1,0 +1,52 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Hello HomeController!{% endblock %}
+{% block stylesheets %}
+<link rel="stylesheet" href="{{asset('master.css')}}">
+{% endblock %}
+{% block body %}
+<style>
+    .bd-placeholder-img {
+        font-size: 1.125rem;
+        text-anchor: middle;
+        -webkit-user-select: none;
+        -moz-user-select: none;
+        user-select: none;
+    }
+
+    @media (min-width: 768px) {
+        .bd-placeholder-img-lg {
+            font-size: 3.5rem;
+        }
+    }
+</style>
+
+
+
+
+<div class="col-lg-8 mx-auto p-3 py-md-5">
+    <header class="d-flex align-items-center pb-3 mb-5 border-bottom">
+        <a href="/" class="d-flex align-items-center text-dark text-decoration-none">
+            <span class="fs-4">Around php</span>
+        </a>
+    </header>
+
+    <main>
+        <h1>Systeme de like avec symfony 5 et axios</h1>
+
+        <hr class="col-3 col-md-2 mb-5">
+
+        <div class="row g-5">
+            <div class="col-md-6">
+                <h2>Starter projects</h2>
+                <p>Ready to beyond the starter template? Check out these open source projects that you can quickly
+                    duplicate to a new GitHub repository.</p>
+                <a class="nav-link" href=" "><i class="fas fa-thumbs-up"></i> 25 j'aime</a>
+            </div>
+        </div>
+    </main>
+    <footer class="pt-5 my-5 text-muted border-top">
+        Created by the Bootstrap team &middot; &copy; 2021
+    </footer>
+</div>
+{% endblock %}
