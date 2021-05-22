@@ -32,17 +32,40 @@
     </header>
 
     <main>
-        <h1>Systeme de like avec symfony 5 et axios</h1>
+        <h1>Systeme de like avec symfony 5.2.9</h1>
+
+        <div class="card" style="width: 18rem;">
+            <div class="card-body">
+                <h5 class="card-title">Compte</h5>
+                <h6 class="card-subtitle mb-2 text-muted">Vous pouvez vous connecter</h6>
+                <p class="card-text">Email: admin@admin.com</p>
+                <p class="card-text">password: 123456</p>
+                {% if app.user|length is same as(0)%}
+                <a class="card-link" href="{{path('app_login')}}">se connecter</a>
+                {% else %}
+                <a class="card-link text-danger" href="{{path('app_logout')}}">se deconnecter</a>
+
+                {% endif %}
+            </div>
+        </div>
+
 
         <hr class="col-3 col-md-2 mb-5">
 
         <div class="row g-5">
+            {% for article in articles %}
             <div class="col-md-6">
-                <h2>Starter projects</h2>
-                <p>Ready to beyond the starter template? Check out these open source projects that you can quickly
-                    duplicate to a new GitHub repository.</p>
-                <a class="nav-link" href=" "><i class="fas fa-thumbs-up"></i> 25 j'aime</a>
+                <h2>{{article.titre}}</h2>
+                <p>{{article.contenu|raw}}</p>
+
+                {% if article.isLikeByUser(app.user) %}
+                <a class="nav-link" href="{{path('like_post',{'id':article.id})}}"><i class="fas fa-thumbs-up"></i> {{article.likePosts|length}} j'aime</a>
+                {% else %}
+                <a class="nav-link" href="{{path('like_post',{'id':article.id})}} "><i class="far fa-thumbs-up"></i> {{article.likePosts|length}} j'aime</a>
+                {% endif %}
+
             </div>
+            {% endfor %}
         </div>
     </main>
     <footer class="pt-5 my-5 text-muted border-top">
